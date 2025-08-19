@@ -1,0 +1,10 @@
+*.gguf
+*.bin
+*.safetensors
+server.log
+__pycache__/
+*.gguf
+*.bin
+*.safetensors
+server.log
+__pycache__/

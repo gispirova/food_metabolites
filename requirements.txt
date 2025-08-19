@@ -1,0 +1,16 @@
+# Core dependencies for Food-Metabolite Correlation Analysis
+requests>=2.28.0
+typing-extensions>=4.0.0
+
+# Alternative Llama integration options (try these if llama-cpp-python fails)
+# llama-cpp-python>=0.2.0  # Commented out due to build issues
+# Try pre-compiled wheels instead:
+# pip install llama-cpp-python --prefer-binary --no-cache-dir
+
+# Ollama integration (often easier to set up)
+# ollama>=0.1.0  # Uncomment if you prefer Ollama
+
+# Development and testing
+pytest>=7.0.0
+black>=22.0.0
+flake8>=5.0.0

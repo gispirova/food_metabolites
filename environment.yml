@@ -1,0 +1,11 @@
+name: food-metabolites
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - requests
+  - typing-extensions
+  - pytest
+  - black
+  - flake8

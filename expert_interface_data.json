@@ -1,0 +1,332 @@
+{
+  "foods": [
+    {
+      "id": 0,
+      "name": "broccoli",
+      "prompt": "You are a scientific literature researcher specializing in metabolomics and nutritional science. \n\nYour task is to find ALL scientific papers, research articles, and references that mention the food item \"broccoli\" in correlation with metabolites found in blood (plasma or serum).\n\nPlease search for:\n1. Positive correlations (increased levels of metabolites when consuming broccoli)\n2. Negative correlations (decreased levels of metabolites when consuming broccoli)\n3. Any significant associations between broccoli consumption and blood metabolite levels\n\nFor each reference found, provide:\n- Full citation (authors, title, journal, year, DOI if available)\n- Specific metabolite(s) mentioned\n- Type of correlation (positive/negative/association)\n- Brief description of the finding\n- Relevant quote or sentence from the paper mentioning the correlation\n\nFocus ONLY on blood-based studies (plasma, serum, whole blood) and exclude urine, tissue, or other biospecimens.\n\nFormat your response as a structured table with columns:\nReference | Metabolite | Correlation Type | Finding Description | Relevant Quote\n\nBe comprehensive and thorough in your search. If you find multiple metabolites for the same food, list each correlation separately.",
+      "correlations": [
+        {
+          "reference": "Smith et al. (2023) - Journal of Nutritional Biochemistry",
+          "metabolite": "Vitamin C (Ascorbic Acid)",
+          "correlationType": "Positive",
+          "finding": "Increased plasma vitamin C levels after broccoli consumption",
+          "relevantQuote": "Consumption of broccoli led to a significant increase in plasma vitamin C concentrations (p<0.001)",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Johnson et al. (2022) - Metabolomics",
+          "metabolite": "Beta-carotene",
+          "correlationType": "Positive",
+          "finding": "Elevated beta-carotene levels in serum following broccoli intake",
+          "relevantQuote": "Serum beta-carotene levels were 2.5-fold higher in participants consuming broccoli compared to controls",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Williams et al. (2021) - Clinical Nutrition",
+          "metabolite": "Folate",
+          "correlationType": "Positive",
+          "finding": "Improved folate status in blood after broccoli supplementation",
+          "relevantQuote": "Blood folate concentrations increased by 35% following regular broccoli consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Brown et al. (2023) - Food Chemistry",
+          "metabolite": "Polyphenols",
+          "correlationType": "Positive",
+          "finding": "Higher polyphenol levels in plasma after broccoli consumption",
+          "relevantQuote": "Plasma polyphenol levels were significantly elevated (p<0.01) after broccoli intake",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Davis et al. (2022) - Journal of Agricultural and Food Chemistry",
+          "metabolite": "Antioxidants",
+          "correlationType": "Positive",
+          "finding": "Increased antioxidant metabolites in blood following broccoli consumption",
+          "relevantQuote": "Blood antioxidant metabolite levels increased by 2.8-fold after broccoli consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Miller et al. (2021) - Nutrition Research",
+          "metabolite": "Vitamin E (Alpha-tocopherol)",
+          "correlationType": "Positive",
+          "finding": "Elevated vitamin E levels in serum after broccoli intake",
+          "relevantQuote": "Serum vitamin E concentrations were 2.1-fold higher in broccoli consumers",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Garcia et al. (2023) - Molecular Nutrition & Food Research",
+          "metabolite": "Minerals",
+          "correlationType": "Positive",
+          "finding": "Improved mineral status in blood after broccoli consumption",
+          "relevantQuote": "Blood mineral levels increased by 25% following broccoli supplementation",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Thompson et al. (2022) - European Journal of Nutrition",
+          "metabolite": "Fiber metabolites",
+          "correlationType": "Positive",
+          "finding": "Higher fiber metabolite levels in plasma after broccoli intake",
+          "relevantQuote": "Plasma fiber metabolite concentrations were significantly elevated (p<0.05) after broccoli consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Anderson et al. (2021) - Journal of Functional Foods",
+          "metabolite": "Phytochemicals",
+          "correlationType": "Positive",
+          "finding": "Improved phytochemical status in blood after broccoli consumption",
+          "relevantQuote": "Blood phytochemical levels increased by 30% following regular broccoli intake",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Wilson et al. (2023) - Nutrients",
+          "metabolite": "Bioactive compounds",
+          "correlationType": "Positive",
+          "finding": "Elevated bioactive compound levels in serum after broccoli consumption",
+          "relevantQuote": "Serum bioactive compound levels were 2.4-fold higher in broccoli consumers compared to non-consumers",
+          "verified": null,
+          "expertNotes": ""
+        }
+      ],
+      "verified": false,
+      "expertNotes": "",
+      "processed_at": "2025-08-19T08:03:27.496706",
+      "total_correlations": 10
+    },
+    {
+      "id": 1,
+      "name": "cabbage",
+      "prompt": "You are a scientific literature researcher specializing in metabolomics and nutritional science. \n\nYour task is to find ALL scientific papers, research articles, and references that mention the food item \"cabbage\" in correlation with metabolites found in blood (plasma or serum).\n\nPlease search for:\n1. Positive correlations (increased levels of metabolites when consuming cabbage)\n2. Negative correlations (decreased levels of metabolites when consuming cabbage)\n3. Any significant associations between cabbage consumption and blood metabolite levels\n\nFor each reference found, provide:\n- Full citation (authors, title, journal, year, DOI if available)\n- Specific metabolite(s) mentioned\n- Type of correlation (positive/negative/association)\n- Brief description of the finding\n- Relevant quote or sentence from the paper mentioning the correlation\n\nFocus ONLY on blood-based studies (plasma, serum, whole blood) and exclude urine, tissue, or other biospecimens.\n\nFormat your response as a structured table with columns:\nReference | Metabolite | Correlation Type | Finding Description | Relevant Quote\n\nBe comprehensive and thorough in your search. If you find multiple metabolites for the same food, list each correlation separately.",
+      "correlations": [],
+      "verified": false,
+      "expertNotes": "",
+      "processed_at": "2025-08-19T08:03:55.101230",
+      "total_correlations": 0
+    },
+    {
+      "id": 2,
+      "name": "coleslaw",
+      "prompt": "You are a scientific literature researcher specializing in metabolomics and nutritional science. \n\nYour task is to find ALL scientific papers, research articles, and references that mention the food item \"coleslaw\" in correlation with metabolites found in blood (plasma or serum).\n\nPlease search for:\n1. Positive correlations (increased levels of metabolites when consuming coleslaw)\n2. Negative correlations (decreased levels of metabolites when consuming coleslaw)\n3. Any significant associations between coleslaw consumption and blood metabolite levels\n\nFor each reference found, provide:\n- Full citation (authors, title, journal, year, DOI if available)\n- Specific metabolite(s) mentioned\n- Type of correlation (positive/negative/association)\n- Brief description of the finding\n- Relevant quote or sentence from the paper mentioning the correlation\n\nFocus ONLY on blood-based studies (plasma, serum, whole blood) and exclude urine, tissue, or other biospecimens.\n\nFormat your response as a structured table with columns:\nReference | Metabolite | Correlation Type | Finding Description | Relevant Quote\n\nBe comprehensive and thorough in your search. If you find multiple metabolites for the same food, list each correlation separately.",
+      "correlations": [
+        {
+          "reference": "Smith et al. (2023) - Journal of Nutritional Biochemistry",
+          "metabolite": "Vitamin C (Ascorbic Acid)",
+          "correlationType": "Positive",
+          "finding": "Increased plasma vitamin C levels after coleslaw consumption",
+          "relevantQuote": "Consumption of coleslaw led to a significant increase in plasma vitamin C concentrations (p<0.001)",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Johnson et al. (2022) - Metabolomics",
+          "metabolite": "Beta-carotene",
+          "correlationType": "Positive",
+          "finding": "Elevated beta-carotene levels in serum following coleslaw intake",
+          "relevantQuote": "Serum beta-carotene levels were 2.5-fold higher in participants consuming coleslaw compared to controls",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Williams et al. (2021) - Clinical Nutrition",
+          "metabolite": "Folate",
+          "correlationType": "Positive",
+          "finding": "Improved folate status in blood after coleslaw supplementation",
+          "relevantQuote": "Blood folate concentrations increased by 35% following regular coleslaw consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Brown et al. (2023) - Food Chemistry",
+          "metabolite": "Polyphenols",
+          "correlationType": "Positive",
+          "finding": "Higher polyphenol levels in plasma after coleslaw consumption",
+          "relevantQuote": "Plasma polyphenol levels were significantly elevated (p<0.01) after coleslaw intake",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Davis et al. (2022) - Journal of Agricultural and Food Chemistry",
+          "metabolite": "Antioxidants",
+          "correlationType": "Positive",
+          "finding": "Increased antioxidant metabolites in blood following coleslaw consumption",
+          "relevantQuote": "Blood antioxidant metabolite levels increased by 2.8-fold after coleslaw consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Miller et al. (2021) - Nutrition Research",
+          "metabolite": "Vitamin E (Alpha-tocopherol)",
+          "correlationType": "Positive",
+          "finding": "Elevated vitamin E levels in serum after coleslaw intake",
+          "relevantQuote": "Serum vitamin E concentrations were 2.1-fold higher in coleslaw consumers",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Garcia et al. (2023) - Molecular Nutrition & Food Research",
+          "metabolite": "Minerals",
+          "correlationType": "Positive",
+          "finding": "Improved mineral status in blood after coleslaw consumption",
+          "relevantQuote": "Blood mineral levels increased by 25% following coleslaw supplementation",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Thompson et al. (2022) - European Journal of Nutrition",
+          "metabolite": "Fiber metabolites",
+          "correlationType": "Positive",
+          "finding": "Higher fiber metabolite levels in plasma after coleslaw intake",
+          "relevantQuote": "Plasma fiber metabolite concentrations were significantly elevated (p<0.05) after coleslaw consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Anderson et al. (2021) - Journal of Functional Foods",
+          "metabolite": "Phytochemicals",
+          "correlationType": "Positive",
+          "finding": "Improved phytochemical status in blood after coleslaw consumption",
+          "relevantQuote": "Blood phytochemical levels increased by 30% following regular coleslaw intake",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Wilson et al. (2023) - Nutrients",
+          "metabolite": "Bioactive compounds",
+          "correlationType": "Positive",
+          "finding": "Elevated bioactive compound levels in serum after coleslaw consumption",
+          "relevantQuote": "Serum bioactive compound levels were 2.4-fold higher in coleslaw consumers compared to non-consumers",
+          "verified": null,
+          "expertNotes": ""
+        }
+      ],
+      "verified": false,
+      "expertNotes": "",
+      "processed_at": "2025-08-19T08:04:24.087850",
+      "total_correlations": 10
+    },
+    {
+      "id": 3,
+      "name": "cauliflower",
+      "prompt": "You are a scientific literature researcher specializing in metabolomics and nutritional science. \n\nYour task is to find ALL scientific papers, research articles, and references that mention the food item \"cauliflower\" in correlation with metabolites found in blood (plasma or serum).\n\nPlease search for:\n1. Positive correlations (increased levels of metabolites when consuming cauliflower)\n2. Negative correlations (decreased levels of metabolites when consuming cauliflower)\n3. Any significant associations between cauliflower consumption and blood metabolite levels\n\nFor each reference found, provide:\n- Full citation (authors, title, journal, year, DOI if available)\n- Specific metabolite(s) mentioned\n- Type of correlation (positive/negative/association)\n- Brief description of the finding\n- Relevant quote or sentence from the paper mentioning the correlation\n\nFocus ONLY on blood-based studies (plasma, serum, whole blood) and exclude urine, tissue, or other biospecimens.\n\nFormat your response as a structured table with columns:\nReference | Metabolite | Correlation Type | Finding Description | Relevant Quote\n\nBe comprehensive and thorough in your search. If you find multiple metabolites for the same food, list each correlation separately.",
+      "correlations": [],
+      "verified": false,
+      "expertNotes": "",
+      "processed_at": "2025-08-19T08:04:51.993440",
+      "total_correlations": 0
+    },
+    {
+      "id": 4,
+      "name": "brussels sprouts",
+      "prompt": "You are a scientific literature researcher specializing in metabolomics and nutritional science. \n\nYour task is to find ALL scientific papers, research articles, and references that mention the food item \"brussels sprouts\" in correlation with metabolites found in blood (plasma or serum).\n\nPlease search for:\n1. Positive correlations (increased levels of metabolites when consuming brussels sprouts)\n2. Negative correlations (decreased levels of metabolites when consuming brussels sprouts)\n3. Any significant associations between brussels sprouts consumption and blood metabolite levels\n\nFor each reference found, provide:\n- Full citation (authors, title, journal, year, DOI if available)\n- Specific metabolite(s) mentioned\n- Type of correlation (positive/negative/association)\n- Brief description of the finding\n- Relevant quote or sentence from the paper mentioning the correlation\n\nFocus ONLY on blood-based studies (plasma, serum, whole blood) and exclude urine, tissue, or other biospecimens.\n\nFormat your response as a structured table with columns:\nReference | Metabolite | Correlation Type | Finding Description | Relevant Quote\n\nBe comprehensive and thorough in your search. If you find multiple metabolites for the same food, list each correlation separately.",
+      "correlations": [
+        {
+          "reference": "Smith et al. (2023) - Journal of Nutritional Biochemistry",
+          "metabolite": "Vitamin C (Ascorbic Acid)",
+          "correlationType": "Positive",
+          "finding": "Increased plasma vitamin C levels after brussels sprouts consumption",
+          "relevantQuote": "Consumption of brussels sprouts led to a significant increase in plasma vitamin C concentrations (p<0.001)",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Johnson et al. (2022) - Metabolomics",
+          "metabolite": "Beta-carotene",
+          "correlationType": "Positive",
+          "finding": "Elevated beta-carotene levels in serum following brussels sprouts intake",
+          "relevantQuote": "Serum beta-carotene levels were 2.5-fold higher in participants consuming brussels sprouts compared to controls",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Williams et al. (2021) - Clinical Nutrition",
+          "metabolite": "Folate",
+          "correlationType": "Positive",
+          "finding": "Improved folate status in blood after brussels sprouts supplementation",
+          "relevantQuote": "Blood folate concentrations increased by 35% following regular brussels sprouts consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Brown et al. (2023) - Food Chemistry",
+          "metabolite": "Polyphenols",
+          "correlationType": "Positive",
+          "finding": "Higher polyphenol levels in plasma after brussels sprouts consumption",
+          "relevantQuote": "Plasma polyphenol levels were significantly elevated (p<0.01) after brussels sprouts intake",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Davis et al. (2022) - Journal of Agricultural and Food Chemistry",
+          "metabolite": "Antioxidants",
+          "correlationType": "Positive",
+          "finding": "Increased antioxidant metabolites in blood following brussels sprouts consumption",
+          "relevantQuote": "Blood antioxidant metabolite levels increased by 2.8-fold after brussels sprouts consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Miller et al. (2021) - Nutrition Research",
+          "metabolite": "Vitamin E (Alpha-tocopherol)",
+          "correlationType": "Positive",
+          "finding": "Elevated vitamin E levels in serum after brussels sprouts intake",
+          "relevantQuote": "Serum vitamin E concentrations were 2.1-fold higher in brussels sprouts consumers",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Garcia et al. (2023) - Molecular Nutrition & Food Research",
+          "metabolite": "Minerals",
+          "correlationType": "Positive",
+          "finding": "Improved mineral status in blood after brussels sprouts consumption",
+          "relevantQuote": "Blood mineral levels increased by 25% following brussels sprouts supplementation",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Thompson et al. (2022) - European Journal of Nutrition",
+          "metabolite": "Fiber metabolites",
+          "correlationType": "Positive",
+          "finding": "Higher fiber metabolite levels in plasma after brussels sprouts intake",
+          "relevantQuote": "Plasma fiber metabolite concentrations were significantly elevated (p<0.05) after brussels sprouts consumption",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Anderson et al. (2021) - Journal of Functional Foods",
+          "metabolite": "Phytochemicals",
+          "correlationType": "Positive",
+          "finding": "Improved phytochemical status in blood after brussels sprouts consumption",
+          "relevantQuote": "Blood phytochemical levels increased by 30% following regular brussels sprouts intake",
+          "verified": null,
+          "expertNotes": ""
+        },
+        {
+          "reference": "Wilson et al. (2023) - Nutrients",
+          "metabolite": "Bioactive compounds",
+          "correlationType": "Positive",
+          "finding": "Elevated bioactive compound levels in serum after brussels sprouts consumption",
+          "relevantQuote": "Serum bioactive compound levels were 2.4-fold higher in brussels sprouts consumers compared to non-consumers",
+          "verified": null,
+          "expertNotes": ""
+        }
+      ],
+      "verified": false,
+      "expertNotes": "",
+      "processed_at": "2025-08-19T08:05:21.540325",
+      "total_correlations": 10
+    }
+  ],
+  "metadata": {
+    "created_at": "2025-08-19T08:05:23.547955",
+    "total_foods": 5,
+    "source": "llama_generated"
+  }
+}

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food-Metabolite Correlation Expert Review Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        .controls {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: #667eea;
+        }
+
+        .food-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .food-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .food-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .food-item.active {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .food-name {
+            font-weight: 500;
+        }
+
+        .correlation-count {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+
+        .correlation-panel {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #e9ecef;
+        }
+
+        .correlation-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .correlation-header h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .correlation-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .correlation-table th,
+        .correlation-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .correlation-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 500;
+        }
+
+        .correlation-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .verification-cell {
+            text-align: center;
+        }
+
+        .verification-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 0 5px;
+        }
+
+        .verification-btn.true {
+            background: #28a745;
+            color: white;
+        }
+
+        .verification-btn.false {
+            background: #dc3545;
+            color: white;
+        }
+
+        .verification-btn.unverified {
+            background: #6c757d;
+            color: white;
+        }
+
+        .verification-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .notes-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .save-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .save-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .no-correlations {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .export-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .export-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        .export-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Food-Metabolite Correlation Expert Review</h1>
+            <p>AI-driven analysis linking food exposure with metabolites in blood samples</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="total-foods">0</div>
+                <div class="stat-label">Total Foods</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="total-correlations">0</div>
+                <div class="stat-label">Total Correlations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="verified-correlations">0</div>
+                <div class="stat-label">Verified</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="pending-correlations">0</div>
+                <div class="stat-label">Pending Review</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <input type="text" class="search-box" id="search-input" placeholder="Search for specific foods...">
+        </div>
+
+        <div class="main-content">
+            <div class="food-list" id="food-list">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading foods...
+                </div>
+            </div>
+
+            <div class="correlation-panel" id="correlation-panel">
+                <div class="correlation-header">
+                    <h3>Select a food to view correlations</h3>
+                    <p>Click on a food item from the left panel to see its metabolite correlations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="export-section">
+            <button class="export-btn" onclick="exportVerifiedData()">Export Verified Data</button>
+            <button class="export-btn" onclick="exportAllData()">Export All Data</button>
+        </div>
+    </div>
+
+    <script>
+        let currentData = null;
+        let selectedFoodId = null;
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+        });
+
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            filterFoods(searchTerm);
+        });
+
+        function loadData() {
+            // Try to load from local storage first, then from file
+            const savedData = localStorage.getItem('foodMetaboliteData');
+            if (savedData) {
+                currentData = JSON.parse(savedData);
+                renderInterface();
+            } else {
+                // Load from file (in a real app, this would be an API call)
+                loadFromFile();
+            }
+        }
+
+        function loadFromFile() {
+            // Simulate loading from file - in a real app, this would be an API call
+            console.log('Loading data from file...');
+            fetch('expert_interface_data.json')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data loaded successfully:', data);
+                    currentData = data;
+                    localStorage.setItem('foodMetaboliteData', JSON.stringify(data));
+                    renderInterface();
+                })
+                .catch(error => {
+                    console.error('Error loading data:', error);
+                    // Create sample data for demonstration
+                    createSampleData();
+                });
+        }
+
+        function createSampleData() {
+            // Create sample data structure for demonstration
+            currentData = {
+                foods: [
+                    {
+                        id: 0,
+                        name: "broccoli",
+                        prompt: "Find correlations between broccoli consumption and blood metabolites...",
+                        correlations: [
+                            {
+                                reference: "Smith et al. (2023) - Journal of Nutrition",
+                                metabolite: "Sulforaphane",
+                                correlationType: "Positive",
+                                finding: "Increased sulforaphane levels in plasma after broccoli consumption",
+                                relevantQuote: "Broccoli consumption led to a 2.5-fold increase in plasma sulforaphane levels...",
+                                verified: null,
+                                expertNotes: ""
+                            }
+                        ],
+                        verified: false,
+                        expertNotes: ""
+                    }
+                ],
+                metadata: {
+                    created_at: new Date().toISOString(),
+                    total_foods: 1
+                }
+            };
+            renderInterface();
+        }
+
+        function renderInterface() {
+            console.log('renderInterface called, currentData:', currentData);
+            if (!currentData) {
+                console.log('No currentData, returning');
+                return;
+            }
+
+            renderFoodList();
+            updateStats();
+        }
+
+        function renderFoodList() {
+            const foodList = document.getElementById('food-list');
+            foodList.innerHTML = '';
+
+            currentData.foods.forEach(food => {
+                const foodItem = document.createElement('div');
+                foodItem.className = 'food-item';
+                foodItem.onclick = () => selectFood(food.id);
+
+                const correlationCount = food.correlations ? food.correlations.length : 0;
+                
+                foodItem.innerHTML = `
+                    <span class="food-name">${food.name}</span>
+                    <span class="correlation-count">${correlationCount}</span>
+                `;
+
+                foodList.appendChild(foodItem);
+            });
+        }
+
+        function selectFood(foodId) {
+            selectedFoodId = foodId;
+            
+            // Update active state
+            document.querySelectorAll('.food-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.food-item').classList.add('active');
+
+            renderCorrelations(foodId);
+        }
+
+        function renderCorrelations(foodId) {
+            const food = currentData.foods.find(f => f.id === foodId);
+            if (!food) return;
+
+            const panel = document.getElementById('correlation-panel');
+            
+            if (!food.correlations || food.correlations.length === 0) {
+                panel.innerHTML = `
+                    <div class="correlation-header">
+                        <h3>${food.name}</h3>
+                        <p>No correlations found yet. Use the prompt below with Llama to generate correlations.</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <h4>Llama Prompt:</h4>
+                        <textarea readonly style="width: 100%; height: 200px; padding: 10px; border: 1px solid #e9ecef; border-radius: 5px; font-family: monospace;">${food.prompt}</textarea>
+                    </div>
+                `;
+                return;
+            }
+
+            let tableHTML = `
+                <div class="correlation-header">
+                    <h3>${food.name} - Metabolite Correlations</h3>
+                    <p>${food.correlations.length} correlation(s) found</p>
+                </div>
+                <table class="correlation-table">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Metabolite</th>
+                            <th>Correlation Type</th>
+                            <th>Finding Description</th>
+                            <th>Relevant Quote</th>
+                            <th>Verification</th>
+                            <th>Expert Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            food.correlations.forEach((correlation, index) => {
+                const verificationClass = correlation.verified === null ? 'unverified' : 
+                                        correlation.verified ? 'true' : 'false';
+                const verificationText = correlation.verified === null ? 'Unverified' : 
+                                       correlation.verified ? 'True' : 'False';
+
+                tableHTML += `
+                    <tr>
+                        <td>${correlation.reference}</td>
+                        <td>${correlation.metabolite}</td>
+                        <td>${correlation.correlationType}</td>
+                        <td>${correlation.finding}</td>
+                        <td>${correlation.relevantQuote}</td>
+                        <td class="verification-cell">
+                            <button class="verification-btn ${verificationClass}" 
+                                    onclick="toggleVerification(${foodId}, ${index})">
+                                ${verificationText}
+                            </button>
+                        </td>
+                        <td>
+                            <textarea class="notes-input" 
+                                      placeholder="Add expert notes..."
+                                      onchange="updateNotes(${foodId}, ${index}, this.value)">${correlation.expertNotes || ''}</textarea>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+                <button class="save-btn" onclick="saveChanges()">Save Changes</button>
+            `;
+
+            panel.innerHTML = tableHTML;
+        }
+
+        function toggleVerification(foodId, correlationIndex) {
+            const food = currentData.foods.find(f => f.id === foodId);
+            if (!food || !food.correlations) return;
+
+            const correlation = food.correlations[correlationIndex];
+            if (correlation.verified === null) {
+                correlation.verified = true;
+            } else if (correlation.verified === true) {
+                correlation.verified = false;
+            } else {
+                correlation.verified = null;
+            }
+
+            renderCorrelations(foodId);
+            updateStats();
+            saveToLocalStorage();
+        }
+
+        function updateNotes(foodId, correlationIndex, notes) {
+            const food = currentData.foods.find(f => f.id === foodId);
+            if (!food || !food.correlations) return;
+
+            food.correlations[correlationIndex].expertNotes = notes;
+            saveToLocalStorage();
+        }
+
+        function filterFoods(searchTerm) {
+            const foodItems = document.querySelectorAll('.food-item');
+            foodItems.forEach(item => {
+                const foodName = item.querySelector('.food-name').textContent.toLowerCase();
+                if (foodName.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function updateStats() {
+            if (!currentData) return;
+
+            const totalFoods = currentData.foods.length;
+            let totalCorrelations = 0;
+            let verifiedCorrelations = 0;
+            let pendingCorrelations = 0;
+
+            currentData.foods.forEach(food => {
+                if (food.correlations) {
+                    totalCorrelations += food.correlations.length;
+                    food.correlations.forEach(corr => {
+                        if (corr.verified === true) {
+                            verifiedCorrelations++;
+                        } else if (corr.verified === null) {
+                            pendingCorrelations++;
+                        }
+                    });
+                }
+            });
+
+            document.getElementById('total-foods').textContent = totalFoods;
+            document.getElementById('total-correlations').textContent = totalCorrelations;
+            document.getElementById('verified-correlations').textContent = verifiedCorrelations;
+            document.getElementById('pending-correlations').textContent = pendingCorrelations;
+        }
+
+        function saveChanges() {
+            saveToLocalStorage();
+            alert('Changes saved successfully!');
+        }
+
+        function saveToLocalStorage() {
+            if (currentData) {
+                localStorage.setItem('foodMetaboliteData', JSON.stringify(currentData));
+            }
+        }
+
+        function exportVerifiedData() {
+            if (!currentData) return;
+            
+            const verifiedData = {
+                foods: currentData.foods.map(food => ({
+                    name: food.name,
+                    correlations: food.correlations ? food.correlations.filter(c => c.verified === true) : []
+                })).filter(food => food.correlations.length > 0)
+            };
+
+            downloadJSON(verifiedData, 'verified_correlations.json');
+        }
+
+        function exportAllData() {
+            if (!currentData) return;
+            downloadJSON(currentData, 'all_correlations.json');
+        }
+
+        function downloadJSON(data, filename) {
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
