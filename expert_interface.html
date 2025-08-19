@@ -199,6 +199,22 @@
             color: white;
         }
 
+        .reference-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .reference-link:hover {
+            color: #5a6fd8;
+            text-decoration: underline;
+        }
+
+        .reference-link:visited {
+            color: #8e44ad;
+        }
+
         .verification-btn.unverified {
             background: #6c757d;
             color: white;
@@ -512,7 +528,11 @@
 
                 tableHTML += `
                     <tr>
-                        <td>${correlation.reference}</td>
+                        <td>
+                            ${correlation.reference_link ? 
+                                `<a href="${correlation.reference_link}" target="_blank" class="reference-link">${correlation.reference}</a>` : 
+                                correlation.reference}
+                        </td>
                         <td>${correlation.metabolite}</td>
                         <td>${correlation.correlationType}</td>
                         <td>${correlation.finding}</td>
