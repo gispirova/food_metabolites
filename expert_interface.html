@@ -45,6 +45,17 @@
             opacity: 0.9;
         }
 
+        .disclaimer {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+
         .stats {
             display: flex;
             justify-content: space-around;
@@ -215,6 +226,15 @@
             color: #8e44ad;
         }
 
+        .example-reference {
+            color: #6c757d;
+            font-style: italic;
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+
         .verification-btn.unverified {
             background: #6c757d;
             color: white;
@@ -311,6 +331,12 @@
         <div class="header">
             <h1>Food-Metabolite Correlation Expert Review</h1>
             <p>AI-driven analysis linking food exposure with metabolites in blood samples</p>
+        </div>
+        
+        <div class="disclaimer">
+            ⚠️ <strong>Important:</strong> This interface contains example correlations for demonstration purposes. 
+            The data shown is NOT real scientific data and should not be used for research purposes. 
+            Real scientific references should be added by researchers.
         </div>
 
         <div class="stats">
@@ -531,7 +557,7 @@
                         <td>
                             ${correlation.reference_link ? 
                                 `<a href="${correlation.reference_link}" target="_blank" class="reference-link">${correlation.reference}</a>` : 
-                                correlation.reference}
+                                `<span class="example-reference">${correlation.reference}</span>`}
                         </td>
                         <td>${correlation.metabolite}</td>
                         <td>${correlation.correlationType}</td>

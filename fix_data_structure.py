@@ -8,171 +8,7 @@ import os
 from typing import List, Dict, Any
 
 def create_comprehensive_correlations(food_name: str) -> List[Dict[str, Any]]:
-    """Create comprehensive correlations with real references and links"""
-    
-    # Real, existing references with actual publication links
-    real_references = [
-        {
-            "authors": "Smith, J.R., Johnson, A.B., Williams, C.D.",
-            "title": "Metabolomic profiling of dietary interventions: A comprehensive review",
-            "journal": "Journal of Nutritional Biochemistry",
-            "year": "2023",
-            "doi": "10.1016/j.jnutbio.2023.109234",
-            "url": "https://doi.org/10.1016/j.jnutbio.2023.109234"
-        },
-        {
-            "authors": "Brown, M.K., Davis, R.L., Miller, S.T.",
-            "title": "Plasma metabolite changes following vegetable consumption in healthy adults",
-            "journal": "Metabolomics",
-            "year": "2022",
-            "doi": "10.1007/s11306-022-01923-8",
-            "url": "https://doi.org/10.1007/s11306-022-01923-8"
-        },
-        {
-            "authors": "Garcia, L.M., Rodriguez, P.A., Martinez, E.C.",
-            "title": "Clinical nutrition interventions and blood biomarker responses",
-            "journal": "Clinical Nutrition",
-            "year": "2021",
-            "doi": "10.1016/j.clnu.2021.08.045",
-            "url": "https://doi.org/10.1016/j.clnu.2021.08.045"
-        },
-        {
-            "authors": "Thompson, K.L., Anderson, M.R., Wilson, J.S.",
-            "title": "Food chemistry and human metabolism: A systematic review",
-            "journal": "Food Chemistry",
-            "year": "2023",
-            "doi": "10.1016/j.foodchem.2023.136789",
-            "url": "https://doi.org/10.1016/j.foodchem.2023.136789"
-        },
-        {
-            "authors": "Davis, A.R., Miller, B.K., Garcia, C.L.",
-            "title": "Molecular mechanisms of food-derived metabolites in human health",
-            "journal": "Molecular Nutrition & Food Research",
-            "year": "2022",
-            "doi": "10.1002/mnfr.202200456",
-            "url": "https://doi.org/10.1002/mnfr.202200456"
-        },
-        {
-            "authors": "Miller, S.T., Johnson, R.K., Williams, L.M.",
-            "title": "Nutrition research advances in metabolomics and biomarkers",
-            "journal": "Nutrition Research",
-            "year": "2021",
-            "doi": "10.1016/j.nutres.2021.07.123",
-            "url": "https://doi.org/10.1016/j.nutres.2021.07.123"
-        },
-        {
-            "authors": "Garcia, M.L., Rodriguez, A.P., Martinez, E.C.",
-            "title": "European perspectives on nutritional metabolomics",
-            "journal": "European Journal of Nutrition",
-            "year": "2023",
-            "doi": "10.1007/s00394-023-03123-9",
-            "url": "https://doi.org/10.1007/s00394-023-03123-9"
-        },
-        {
-            "authors": "Thompson, R.K., Anderson, M.L., Wilson, J.K.",
-            "title": "Functional foods and their impact on human metabolism",
-            "journal": "Journal of Functional Foods",
-            "year": "2022",
-            "doi": "10.1016/j.jff.2022.105234",
-            "url": "https://doi.org/10.1016/j.jff.2022.105234"
-        },
-        {
-            "authors": "Anderson, P.L., Wilson, M.K., Thompson, R.L.",
-            "title": "Nutrients and their role in human health and disease",
-            "journal": "Nutrients",
-            "year": "2021",
-            "doi": "10.3390/nu13113987",
-            "url": "https://doi.org/10.3390/nu13113987"
-        },
-        {
-            "authors": "Wilson, K.L., Thompson, M.R., Anderson, J.L.",
-            "title": "Agricultural and food chemistry: From farm to metabolism",
-            "journal": "Journal of Agricultural and Food Chemistry",
-            "year": "2023",
-            "doi": "10.1021/acs.jafc.3c01234",
-            "url": "https://doi.org/10.1021/acs.jafc.3c01234"
-        },
-        {
-            "authors": "Rodriguez, L.M., Martinez, A.P., Garcia, E.C.",
-            "title": "American clinical nutrition: Evidence-based approaches",
-            "journal": "American Journal of Clinical Nutrition",
-            "year": "2022",
-            "doi": "10.1093/ajcn/nqac234",
-            "url": "https://doi.org/10.1093/ajcn/nqac234"
-        },
-        {
-            "authors": "Martinez, R.L., Garcia, A.M., Rodriguez, E.C.",
-            "title": "British nutrition guidelines and metabolic health",
-            "journal": "British Journal of Nutrition",
-            "year": "2021",
-            "doi": "10.1017/S0007114521002345",
-            "url": "https://doi.org/10.1017/S0007114521002345"
-        },
-        {
-            "authors": "Lopez, M.L., Gonzalez, A.P., Hernandez, E.C.",
-            "title": "Food and function: Linking diet to human physiology",
-            "journal": "Food & Function",
-            "year": "2023",
-            "doi": "10.1039/D3FO01234A",
-            "url": "https://doi.org/10.1039/D3FO01234A"
-        },
-        {
-            "authors": "Gonzalez, R.M., Hernandez, A.L., Lopez, E.C.",
-            "title": "Nutritional science: Advances in dietary assessment",
-            "journal": "Journal of Nutritional Science",
-            "year": "2022",
-            "doi": "10.1017/jns.2022.34",
-            "url": "https://doi.org/10.1017/jns.2022.34"
-        },
-        {
-            "authors": "Hernandez, M.L., Lopez, A.G., Gonzalez, E.C.",
-            "title": "Nutrition and metabolism: Clinical applications",
-            "journal": "Nutrition & Metabolism",
-            "year": "2021",
-            "doi": "10.1186/s12986-021-00634-5",
-            "url": "https://doi.org/10.1186/s12986-021-00634-5"
-        },
-        {
-            "authors": "Torres, R.M., Ramirez, A.T., Morales, E.C.",
-            "title": "Molecular nutrition research: From genes to metabolites",
-            "journal": "Molecular Nutrition & Food Research",
-            "year": "2023",
-            "doi": "10.1002/mnfr.202300567",
-            "url": "https://doi.org/10.1002/mnfr.202300567"
-        },
-        {
-            "authors": "Ramirez, M.T., Morales, A.R., Torres, E.C.",
-            "title": "European clinical nutrition: Evidence and practice",
-            "journal": "European Journal of Clinical Nutrition",
-            "year": "2022",
-            "doi": "10.1038/s41430-022-01134-5",
-            "url": "https://doi.org/10.1038/s41430-022-01134-5"
-        },
-        {
-            "authors": "Morales, R.L., Torres, A.M., Ramirez, E.C.",
-            "title": "Functional foods in clinical practice",
-            "journal": "Journal of Functional Foods",
-            "year": "2021",
-            "doi": "10.1016/j.jff.2021.104567",
-            "url": "https://doi.org/10.1016/j.jff.2021.104567"
-        },
-        {
-            "authors": "Castro, M.L., Vega, A.P., Rocha, E.C.",
-            "title": "Nutrients and human health: A comprehensive review",
-            "journal": "Nutrients",
-            "year": "2023",
-            "doi": "10.3390/nu15102345",
-            "url": "https://doi.org/10.3390/nu15102345"
-        },
-        {
-            "authors": "Vega, R.M., Rocha, A.P., Castro, E.C.",
-            "title": "Food chemistry and human nutrition",
-            "journal": "Food Chemistry",
-            "year": "2022",
-            "doi": "10.1016/j.foodchem.2022.133456",
-            "url": "https://doi.org/10.1016/j.foodchem.2022.133456"
-        }
-    ]
+    """Create comprehensive correlations with honest data structure"""
     
     # Comprehensive list of metabolites and their effects
     metabolites_data = [
@@ -223,20 +59,19 @@ def create_comprehensive_correlations(food_name: str) -> List[Dict[str, Any]]:
     
     correlations = []
     
-    # Generate correlations with real references
+    # Generate correlations with honest data structure
     for i, (metabolite, corr_type, finding, quote) in enumerate(metabolites_data):
-        ref = real_references[i % len(real_references)]
-        
         correlation = {
-            "reference": f"{ref['authors']} ({ref['year']}) - {ref['journal']}",
-            "reference_link": ref['url'],
-            "doi": ref['doi'],
+            "reference": f"Example correlation {i+1} - {metabolite}",
+            "reference_link": None,  # No fake links
+            "doi": None,  # No fake DOIs
             "metabolite": metabolite,
             "correlationType": corr_type,
             "finding": finding,
             "relevantQuote": quote,
             "verified": None,
-            "expertNotes": ""
+            "expertNotes": "",
+            "data_source": "Generated example data for demonstration purposes"
         }
         correlations.append(correlation)
     
@@ -304,9 +139,10 @@ def regenerate_expert_interface_data():
             "total_foods": len(foods),
             "total_correlations": len(foods) * 40,  # 40 correlations per food (20 positive + 20 negative)
             "correlation_types": ["Positive", "Negative"],
-            "data_source": "Comprehensive literature analysis with real references and links",
-            "reference_count": 20,
-            "metabolite_count": 40
+            "data_source": "Example correlations for demonstration purposes - NOT real scientific data",
+            "reference_count": 40,
+            "metabolite_count": 40,
+            "disclaimer": "This data is generated for demonstration purposes. Real scientific references should be added by researchers."
         }
     }
     
@@ -336,13 +172,15 @@ def regenerate_expert_interface_data():
     print(f"📊 Total foods: {len(data['foods'])}")
     print(f"🔬 Total correlations: {data['metadata']['total_correlations']}")
     print(f"📈 Correlation types: {', '.join(data['metadata']['correlation_types'])}")
-    print(f"📚 References per food: {data['metadata']['reference_count']}")
+    print(f"📚 Correlations per food: {data['metadata']['reference_count']}")
     print(f"🧬 Metabolites per food: {data['metadata']['metabolite_count']}")
+    print(f"⚠️  IMPORTANT: This is example data for demonstration purposes")
+    print(f"📝 Real scientific references should be added by researchers")
     
     return data
 
 if __name__ == "__main__":
-    print("🔄 Regenerating expert_interface_data.json with comprehensive correlations...")
+    print("🔄 Regenerating expert_interface_data.json with honest data structure...")
     print("=" * 70)
     
     try:
@@ -351,7 +189,7 @@ if __name__ == "__main__":
         print("\nNext steps:")
         print("1. Commit the updated file: git add expert_interface_data.json")
         print("2. Push to GitHub: git push origin master")
-        print("3. Update HTML to make references clickable")
+        print("3. The HTML will now show honest data without fake links")
         print("4. GitHub Pages will automatically update")
         
     except Exception as e:
